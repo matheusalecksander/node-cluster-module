@@ -9,6 +9,13 @@ const runPrimaryProcess = () => {
 
   for(var i = 0; i < processesCount; i++)
     cluster.fork()
+
+  cluster.on('exit', (worker, code, signal) => {
+    if(code !== 0 && !worker.exitedAfterDisconnect) {
+      console.log(`Worker ${worker.process.pid} died... scheduling another one`)
+      cluster.fork()
+    }
+  })
 }
 
 const runWorkerProcess = async () => {
