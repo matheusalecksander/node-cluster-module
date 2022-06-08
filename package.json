@@ -1,0 +1,17 @@
+{
+  "name": "scalable",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "npx autocannon -c 500 -d 30 localhost:3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autocannon": "^7.9.0"
+  }
+}
