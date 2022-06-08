@@ -15,3 +15,8 @@ process.on('SIGTERM', () => {
   console.log(`Server ending => ${new Date().toISOString()}`)
   server.close(() => process.exit())
 })
+
+// Fake server error
+setTimeout(() => {
+  process.exit(1)
+}, Math.random() * 1e4)
